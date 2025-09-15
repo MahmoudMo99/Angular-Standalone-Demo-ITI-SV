@@ -1,0 +1,84 @@
+<h3>Available Products</h3>
+
+<!-- new version  -->
+
+<!-- @if (products.length > 6) {
+<div>
+  <p class="text-center fs-3 text-success">
+    Length of products : {{ products.length }}
+  </p>
+</div>
+} @else if(products.length > 1 && products.length < 6){
+<p class="text-center fs-3 text-success">Length of products between 1 and 5</p>
+} @else {
+<p class="text-center fs-3 text-danger">No Products Found</p>
+}
+
+<hr />
+
+<div class="row g-3">
+  @for (prd of products ; let i = $index ; track prd.id) {
+  <div class="col-4">
+    <div class="card text-start">
+      <p>Product Index : {{ i + 1 }}</p>
+      <img class="card-img-top" [src]="prd.image" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">{{ prd.name }}</h4>
+        <p class="card-text">
+          @switch (prd.price) { @case(50) {
+          <span class="text-danger">High - </span>
+          } @case (20) {
+          <span class="text-primary">Medium - </span>
+          } @default {
+          <span class="text-success">Low - </span>
+          } }
+
+          <span>Price : {{ prd.price }}</span>
+
+          <span> - Quantity : {{ prd.quantity }}</span>
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addToCart(prd)"
+          [disabled]="prd.quantity == 0"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  } @empty {
+  <div>
+    <p class="text-center fs-3 text-danger">No Products Available</p>
+  </div>
+  }
+</div> -->
+
+<!-- <img [src]="imgUrl" alt="" /> -->
+<!-- ========================================================== -->
+
+<!-- old version -->
+
+<div class="row">
+  <div class="col-4" *ngFor="let prd of products">
+    <div class="card text-start">
+      <img class="card-img-top" [src]="prd.image" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">{{ prd.name }}</h4>
+        <p class="card-text">
+          <span>Price : {{ prd.price }}</span>
+          <span> - Quantity : {{ prd.quantity }}</span>
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addToCart(prd)"
+          [disabled]="prd.quantity == 0"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

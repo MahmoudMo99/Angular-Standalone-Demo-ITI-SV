@@ -1,0 +1,44 @@
+<div class="card">
+  <!-- <img
+    class="card-img-top"
+    src="https://static.vecteezy.com/system/resources/previews/026/992/343/non_2x/classic-modified-car-with-dark-smokie-background-ai-generative-free-photo.jpg"
+    alt="Title"
+  /> -->
+
+  <h4 class="py-4">Hello : {{ userName }}</h4>
+
+  <!-- <img class="img-fluid" src="{{ imgUrl }}" alt="Title" /> -->
+
+  <!-- <img class="img-fluid" [src]="imgUrl" [alt]="notFoundImage" /> -->
+
+  <button
+    type="button"
+    class="btn btn-secondary mt-5 w-25 mb-5"
+    (click)="toggleImageSrc()"
+  >
+    Toggle Image
+  </button>
+
+  <!-- <img [class]="imgFluid" [src]="imgUrl" [alt]="notFoundImage" /> -->
+
+  <img [class]="imgFluid" [src]="imgUrl" [alt]="notFoundImage" />
+</div>
+<button type="button" class="btn btn-primary mt-5" (click)="increaseCounter()">
+  Increase Counter
+</button>
+
+<button type="button" class="btn btn-danger mt-5" (click)="decreaseCounter()">
+  Decrease Counter
+</button>
+
+<h5>Counter : {{ counter }}</h5>
+<hr />
+
+<label class="form-label">Name</label>
+<!-- <input type="text" class="form-control" [value]="inputValue" /> -->
+
+<input type="text" class="form-control" [(ngModel)]="inputValue" />
+
+<!-- ngModel ==> FormsModule -->
+
+<h5 class="mt-4">Input Value : {{ inputValue }}</h5>
