@@ -1,25 +1,14 @@
 import { Component } from '@angular/core';
 import { IProduct } from '../../models/iproduct';
-import { CommonModule } from '@angular/common';
-import { CardShadow } from '../../directives/card-shadow';
-import { TruncatePipe } from '../../pipes/truncate-pipe';
+import { ProductCard } from '../product-card/product-card';
 
 @Component({
-  selector: 'app-products',
-  imports: [CommonModule, CardShadow, TruncatePipe],
-  templateUrl: './products.html',
-  styleUrl: './products.css',
+  selector: 'app-products-parent',
+  imports: [ProductCard],
+  templateUrl: './products-parent.html',
+  styleUrl: './products-parent.css',
 })
-export class Products {
-  imgUrl: string = 'https://www.w3schools.com/w3css/img_lights.jpg';
-
-  color: string = 'red';
-
-  description: string =
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae deserunt dolore odio reiciendis fugit et illum error dolores nesciunt rerummollitia, ullam hic nihil labore nobis animi, maxime harum.';
-
-  currentDate: Date = new Date();
-
+export class ProductsParent {
   products: IProduct[] = [
     {
       id: 1,
@@ -62,8 +51,10 @@ export class Products {
     },
   ];
 
-  addToCart(prod: IProduct) {
-    // console.log(prod);
-    prod.quantity--;
+  cart: IProduct[] = [];
+
+  handleAddToCart(product: IProduct) {
+    this.cart.push(product);
+    alert(product.name + ' : added to cart successfully');
   }
 }

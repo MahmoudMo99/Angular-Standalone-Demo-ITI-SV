@@ -13,8 +13,8 @@
 } @else {
 <p class="text-center fs-3 text-danger">No Products Found</p>
 }
-
-<hr />
+ -->
+<!-- <hr />
 
 <div class="row g-3">
   @for (prd of products ; let i = $index ; track prd.id) {
@@ -60,7 +60,7 @@
 
 <!-- old version -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-4" *ngFor="let prd of products">
     <div class="card text-start">
       <img class="card-img-top" [src]="prd.image" alt="Title" />
@@ -81,4 +81,131 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<!-- ngClass, ngStyle -->
+
+<hr />
+
+<!-- <div class="row g-3">
+  @for (prd of products ; let i = $index ; track prd.id) {
+  <div class="col-6 col-md-6 col-lg-4">
+    <div class="card text-start">
+      <p>Product Index : {{ i + 1 }}</p>
+      <img class="card-img-top" [src]="prd.image" alt="Title" />
+      <div class="card-body">
+        <h4
+          class="card-title"
+          [class]="prd.quantity == 0 ? 'text-danger' : 'text-success'"
+        >
+          {{ prd.name }}
+        </h4>
+        <p class="card-text">
+          <span [class.text-danger]="prd.price == 10"
+            >Price : {{ prd.price }}</span
+          >
+          <span
+            [ngClass]="{
+              'text-danger': prd.quantity == 0,
+              'text-primary': prd.quantity == 5,
+              'text-success': prd.quantity > 5
+            }"
+          >
+            - Quantity : {{ prd.quantity }}</span
+          >
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addToCart(prd)"
+          [disabled]="prd.quantity == 0"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  } @empty {
+  <div>
+    <p class="text-center fs-3 text-danger">No Products Available</p>
+  </div>
+  }
+</div> -->
+
+<!-- <div class="row g-3">
+  @for (prd of products ; let i = $index ; track prd.id) {
+  <div class="col-6 col-md-6 col-lg-4">
+    <div class="card text-start" appCardShadow>
+      <p>Product Index : {{ i + 1 }}</p>
+      <img class="card-img-top" [src]="prd.image" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title" [style.color]="color">
+          {{ prd.name }}
+        </h4>
+        <p class="card-text">
+          <span [style]="prd.quantity == 0 ? 'color:red' : 'color:green'"
+            >Price : {{ prd.price }}</span
+          >
+          <span
+            [ngStyle]="{
+              'background-color': prd.quantity == 0 ? 'red' : 'green',
+              border: '1px solid black'
+            }"
+          >
+            - Quantity : {{ prd.quantity }}</span
+          >
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addToCart(prd)"
+          [disabled]="prd.quantity == 0"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  } @empty {
+  <div>
+    <p class="text-center fs-3 text-danger">No Products Available</p>
+  </div>
+  }
+</div> -->
+
+<h2>{{ currentDate | date : "yyyy/MM/dd" }}</h2>
+
+<div class="row g-3">
+  @for (prd of products ; let i = $index ; track prd.id) {
+  <div class="col-6 col-md-6 col-lg-4">
+    <div class="card text-start" appCardShadow>
+      <p>Product Index : {{ i + 1 }}</p>
+      <img class="card-img-top" [src]="prd.image" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">
+          {{ prd.name | titlecase }}
+        </h4>
+
+        <h5 class="fw-normal">{{ description | truncate : 15 }}</h5>
+
+        <p class="card-text">
+          <span>Price : {{ prd.price | currency : "EGP" }}</span>
+          <span> - Quantity : {{ prd.quantity }}</span>
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addToCart(prd)"
+          [disabled]="prd.quantity == 0"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  } @empty {
+  <div>
+    <p class="text-center fs-3 text-danger">No Products Available</p>
+  </div>
+  }
 </div>
