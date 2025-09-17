@@ -1,28 +1,12 @@
-<!-- <h1 class="text-center">Hello in Day 2 - Angular</h1>
-<hr /> -->
-
 <div class="container-fluid p-0">
-  <header><app-header></app-header></header>
+  <app-header></app-header>
 
   <div class="container my-3">
     <div class="row">
-      <div class="col-12 col-md-3"><app-side></app-side></div>
-      <!-- <div class="col-12 col-md-9 mt-3 mt-md-0"><app-home></app-home></div> -->
-
-      <div class="col-12 col-md-9 mt-3 mt-md-0">
-        <!-- <app-products></app-products> -->
-
-        <app-products-parent></app-products-parent>
-
-        <!-- <button type="button" class="btn btn-primary" (click)="toggleTimer()">
-          Toggle
-        </button> -->
-
-        <!-- @if (showTimer) {
-        <app-timer></app-timer>
-        } -->
+      <div class="col-12 col-md-12 mt-3 mt-md-0">
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
-  <Footer><app-footer></app-footer></Footer>
+  <app-footer></app-footer>
 </div>

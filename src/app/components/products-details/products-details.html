@@ -1,0 +1,20 @@
+<div class="card text-start">
+  @if (currentProduct) {
+  <img class="card-img-top" [src]="currentProduct.image" alt="Title" />
+  <div class="card-body">
+    <h4 class="card-title">{{ currentProduct.name }}</h4>
+    <p class="card-text">
+      <span>Price : {{ currentProduct.price | currency }}</span>
+      <span> - Quantity : {{ currentProduct.quantity }}</span>
+    </p>
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      (click)="addToCart(currentProduct)"
+      [disabled]="currentProduct.quantity == 0"
+    >
+      Add to Cart
+    </button> -->
+  </div>
+  }
+</div>

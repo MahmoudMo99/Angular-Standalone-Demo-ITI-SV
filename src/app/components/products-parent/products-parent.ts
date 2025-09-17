@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IProduct } from '../../models/iproduct';
 import { ProductCard } from '../product-card/product-card';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-products-parent',
-  imports: [ProductCard],
+  imports: [ProductCard, CurrencyPipe],
   templateUrl: './products-parent.html',
   styleUrl: './products-parent.css',
 })
@@ -54,7 +55,23 @@ export class ProductsParent {
   cart: IProduct[] = [];
 
   handleAddToCart(product: IProduct) {
-    this.cart.push(product);
-    alert(product.name + ' : added to cart successfully');
+    // this.cart.push(product);
+    // alert(product.name + ' : added to cart successfully');
+
+    const existingProduct = this.cart.find((p) => p.id == product.id);
+
+    if (existingProduct) {
+      existingProduct.quantity++;
+    } else {
+      this.cart.push({ ...product, quantity: 1 });
+    }
+  }
+
+  getTotalPrice() {
+    let total = 0;
+    for (let cartItem of this.cart) {
+      total += cartItem.price * cartItem.quantity;
+    }
+    return total;
   }
 }

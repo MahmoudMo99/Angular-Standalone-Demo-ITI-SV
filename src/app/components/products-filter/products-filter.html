@@ -1,0 +1,7 @@
+<div class="container my-4">
+  <h3>Filter Products</h3>
+
+  <input type="text" [(ngModel)]="filterText" class="form-control mb-3" />
+
+  <app-products-list [filter]="filterText"></app-products-list>
+</div>

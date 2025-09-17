@@ -4,11 +4,24 @@ import { Side } from './components/side/side';
 import { Footer } from './components/footer/footer';
 import { Products } from './components/products/products';
 import { Timer } from './components/timer/timer';
-import { ProductsParent } from "./components/products-parent/products-parent";
+import { ProductsParent } from './components/products-parent/products-parent';
+import { ProductsFilter } from './components/products-filter/products-filter';
+import { ProductsListService } from './components/products-list-service/products-list-service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Side, Footer, Products, Timer, ProductsParent],
+  imports: [
+    Header,
+    Side,
+    Footer,
+    Products,
+    Timer,
+    ProductsParent,
+    ProductsFilter,
+    ProductsListService,
+    RouterOutlet,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
