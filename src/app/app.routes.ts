@@ -5,6 +5,8 @@ import { About } from './components/about/about';
 import { NotFound } from './components/not-found/not-found';
 import { ProductsDetails } from './components/products-details/products-details';
 import { ProductsListService } from './components/products-list-service/products-list-service';
+import { Login } from './components/login/login';
+import { Register } from './components/register/register';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,6 +32,18 @@ export const routes: Routes = [
     path: 'about',
     component: About,
     title: 'About Page',
+  },
+
+  {
+    path: 'login',
+    component: Login,
+    title: 'Login Page',
+  },
+
+  {
+    path: 'register',
+    component: Register,
+    title: 'Register Page',
   },
 
   { path: '**', component: NotFound },

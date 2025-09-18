@@ -1,0 +1,63 @@
+<section class="container my-5">
+  <div class="login-container">
+    <div class="circle circle-one"></div>
+    <div class="form-container">
+      <h1 class="opacity">LOGIN</h1>
+
+      <!-- template variable : #name -->
+
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <input
+          class="form-control"
+          type="email"
+          placeholder="email"
+          name="email"
+          required
+          email
+          ngModel
+          #emailCtrl="ngModel"
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          [class.is-invalid]="emailCtrl.invalid && emailCtrl.touched"
+          [class.is-valid]="emailCtrl.valid && emailCtrl.touched"
+        />
+
+        @if (emailCtrl.invalid && emailCtrl.touched) {
+        <div class="text-danger pt-2">Email is required and must be valid</div>
+        } @else{
+        <div class="text-success pt-2">Email is valid</div>
+        }
+
+        <input
+          class="form-control mt-3"
+          type="password"
+          placeholder="PASSWORD"
+          name="password"
+          required
+          minlength="6"
+          ngModel
+          #passwordCtrl="ngModel"
+          [class.is-invalid]="passwordCtrl.invalid && passwordCtrl.touched"
+          [class.is-valid]="passwordCtrl.valid && passwordCtrl.touched"
+        />
+
+        @if (passwordCtrl.invalid && passwordCtrl.touched) {
+        <div class="text-danger pt-2">
+          Password is required and must be valid
+        </div>
+        } @else{
+        <div class="text-success pt-2">Password is valid</div>
+        }
+
+        <div class="text-center mt-5">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="loginForm.invalid"
+          >
+            SUBMIT
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

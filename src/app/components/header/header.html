@@ -50,9 +50,16 @@
         <button class="btn btn-primary ms-3">Register</button>
         } -->
 
-        <button class="btn btn-primary" (click)="login()" *ngIf="!isLoggedIn">
+        <!-- <button class="btn btn-primary" (click)="login()" *ngIf="!isLoggedIn">
           Login
+        </button> -->
+
+        <button class="btn btn-primary" routerLink="/login">Login</button>
+
+        <button class="btn btn-primary ms-3" routerLink="/register">
+          Register
         </button>
+
         <button class="btn btn-secondary" (click)="logout()" *ngIf="isLoggedIn">
           Logout
         </button>
